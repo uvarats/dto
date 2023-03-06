@@ -92,6 +92,10 @@ final readonly class DataFactory
         }
 
         if (!isset($this->data[$name])) {
+            if ($parameter->isDefaultValueAvailable()) {
+                return $parameter->getDefaultValue();
+            }
+
             if ($parameter->allowsNull()) {
                 return null;
             }

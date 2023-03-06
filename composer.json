@@ -1,20 +1,29 @@
 {
     "name": "uvarats/dto",
-    "description": "Simple library for creating PHP 8 dto with constructor promoted fields",
+    "description": "Lightweight library for creating PHP 8 dto with constructor promoted fields",
     "type": "library",
     "autoload": {
         "psr-4": {
-            "Uvarats\\Dto\\": "src/"
+            "Uvarats\\Dto\\": "src/",
+            "Tests\\": "tests/"
         }
     },
     "authors": [
         {
             "name": "uvarats",
-            "email": "kryashow@yandex.ru"
+            "email": "uvarats@gmail.com"
         }
     ],
     "minimum-stability": "stable",
+    "license": "GPL-3.0-or-later",
     "require": {
         "php": ">=8.2"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^10.0",
+        "symfony/var-dumper": "^6.2"
+    },
+    "scripts": {
+        "test": "phpunit tests"
     }
 }
