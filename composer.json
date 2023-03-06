@@ -1,0 +1,20 @@
+{
+    "name": "uvarats/dto",
+    "description": "Simple library for creating PHP 8 dto with constructor promoted fields",
+    "type": "library",
+    "autoload": {
+        "psr-4": {
+            "Uvarats\\Dto\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "uvarats",
+            "email": "kryashow@yandex.ru"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "php": ">=8.2"
+    }
+}
