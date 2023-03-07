@@ -77,10 +77,13 @@ final readonly class DataFactory
     }
 
     /**
-     * @throws NotTypedPropertyException
+     * @param ReflectionParameter $parameter
+     * @return mixed
      * @throws ConstructorMissingException
      * @throws IncorrectTypeException
+     * @throws NotTypedPropertyException
      * @throws PropertyMissingException
+     * @throws \ReflectionException
      */
     private function resolveParameter(ReflectionParameter $parameter): mixed
     {
