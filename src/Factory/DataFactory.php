@@ -47,7 +47,7 @@ final readonly class DataFactory
         $class = new \ReflectionClass($this->class);
         $constructor = $class->getConstructor();
 
-        if ($constructor === null) {
+        if ($constructor === null || !$constructor->isPublic()) {
             throw new ConstructorMissingException();
         }
 
@@ -57,10 +57,13 @@ final readonly class DataFactory
     }
 
     /**
-     * @throws PropertyMissingException
+     * @param \ReflectionMethod $constructor
+     * @return array
+     * @throws ConstructorMissingException
      * @throws IncorrectTypeException
      * @throws NotTypedPropertyException
-     * @throws ConstructorMissingException
+     * @throws PropertyMissingException
+     * @throws \ReflectionException
      */
     private function getConstructorParams(\ReflectionMethod $constructor): array
     {
@@ -97,10 +100,6 @@ final readonly class DataFactory
         if (!isset($this->data[$name])) {
             if ($parameter->isDefaultValueAvailable()) {
                 return $parameter->getDefaultValue();
-            }
-
-            if ($parameter->allowsNull()) {
-                return null;
             }
 
             throw new PropertyMissingException();
